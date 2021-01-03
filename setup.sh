@@ -9,3 +9,5 @@ chmod 755 bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 else
   echo "Bazel already present"
 fi
+
+~/bin/bazel version
