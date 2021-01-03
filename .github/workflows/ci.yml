@@ -40,5 +40,5 @@ jobs:
     - name: Install Bazel
       run: ./setup.sh
     
-    - name: Go build
+    - name: Build
       run: ./go.sh
