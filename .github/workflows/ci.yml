@@ -33,7 +33,7 @@ jobs:
         path: |
           ~/.bazel
           ~/bin
-        key: ${{ runner.os }}-bazel-${{ hashFiles('**/.bazelversion') }}
+        key: ${{ runner.os }}-bazel-${{ hashFiles('**/.bazelversion') }}-${{ hashFiles('**/setup.sh') }}
         restore-keys: |
           ${{ runner.os }}-bazel-
 
