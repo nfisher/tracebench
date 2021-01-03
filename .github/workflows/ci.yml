@@ -28,17 +28,18 @@ jobs:
         java-version: 11
 
     - name: Cache Bazel
+      id: cache
       uses: actions/cache@v2
       with:
         path: |
           ~/.bazel
           ~/bin
-        key: ${{ runner.os }}-bazel-${{ hashFiles('**/.bazelversion') }}-${{ hashFiles('**/setup.sh') }}
-        restore-keys: |
-          ${{ runner.os }}-bazel-
+        key: ${{ runner.os }}-bazel-${{ hashFiles('.bazelversion') }}
 
     - name: Install Bazel
+      if: steps.cache.outputs.cache-hit != 'true'
       run: ./setup.sh
+
     
     - name: Build
       run: ./go.sh
