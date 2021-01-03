@@ -15,5 +15,4 @@ java_junit5_test(
         artifact("org.hamcrest:hamcrest-library"),
         artifact("org.slf4j:slf4j-api"),
     ],
-    size = "large",
 )
