@@ -1,9 +1,13 @@
 load("@rules_jvm_external//:defs.bzl", "artifact")
 
 java_library(
-    name = "lib",
+    name = "tracebench",
     srcs = glob(["*.java"]),
     deps = [
+        "//src/main/java/cc/jbx/tracebench/metrics:metrics",
         artifact("io.dropwizard:dropwizard-core"),
+    ],
+    visibility = [
+        "//src/test/java:__subpackages__",
     ],
 )

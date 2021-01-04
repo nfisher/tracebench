@@ -28,13 +28,21 @@ public class MetricsResourceTest {
   }
   private static final ResourceExtension EXT = ResourceExtension.builder()
       .bootstrapLogging(false)
-      .addResource(new MetricsResource(entityId -> {
-        Map<String, Metric> m = Map.of("1234", new Metric());
-        Metric metric = m.get(entityId);
-        if (metric == null) {
-          return Optional.empty();
+      .addResource(new MetricsResource(new MetricDAO() {
+        @Override
+        public Optional<Metric> getByEntityId(String entityId) {
+          Map<String, Metric> m = Map.of("1234", new Metric());
+          Metric metric = m.get(entityId);
+          if (metric == null) {
+            return Optional.empty();
+          }
+          return Optional.of(metric);
         }
-        return Optional.of(metric);
+
+        @Override
+        public boolean isHealthy() {
+          return true;
+        }
       }))
       .build();
 

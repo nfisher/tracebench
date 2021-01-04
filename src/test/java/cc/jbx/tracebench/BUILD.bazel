@@ -1,0 +1,21 @@
+load("@rules_jvm_external//:defs.bzl", "artifact")
+load("@tracebench//:junit5.bzl", "java_junit5_test")
+
+java_junit5_test(
+    name = "test",
+    srcs = glob(["*.java"]),
+    test_package = "cc.jbx.tracebench",
+    deps = [
+        "//src/main/java/cc/jbx/tracebench:tracebench",
+        artifact("ch.qos.logback:logback-classic"),
+        artifact("ch.qos.logback:logback-core"),
+        artifact("io.dropwizard:dropwizard-testing"),
+        artifact("jakarta.ws.rs:jakarta.ws.rs-api"),
+        artifact("org.hamcrest:hamcrest"),
+        artifact("org.hamcrest:hamcrest-library"),
+        artifact("org.slf4j:slf4j-api"),
+    ],
+    data = [
+            "//:test-config",
+    ],
+)

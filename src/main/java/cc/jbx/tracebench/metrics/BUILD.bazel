@@ -7,9 +7,11 @@ java_library(
         artifact("com.fasterxml.jackson.core:jackson-annotations"),
         artifact("io.dropwizard:dropwizard-core"),
         artifact("io.dropwizard:dropwizard-jersey"),
+        artifact("io.dropwizard.metrics:metrics-healthchecks"),
         artifact("jakarta.ws.rs:jakarta.ws.rs-api"),
     ],
     visibility = [
         "//src/test/java:__subpackages__",
+        "//src/main/java/cc/jbx:__subpackages__",
     ],
 )

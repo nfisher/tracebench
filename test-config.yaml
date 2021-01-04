@@ -1,0 +1,3 @@
+# testing configuration
+logging:
+  level: ERROR

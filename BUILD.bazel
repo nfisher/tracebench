@@ -1,0 +1,9 @@
+filegroup(
+    name = "test-config",
+    srcs = [
+        "test-config.yaml"
+    ],
+    visibility = [
+        "//src/test/java:__subpackages__",
+    ],
+)
